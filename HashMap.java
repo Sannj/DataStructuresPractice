@@ -69,10 +69,10 @@ public class HashMap<K,V> {
 			 newMap.add(13, "Grapes");
 			 newMap.add(134, "Strawberry");
 			 System.out.println(newMap.get(101).toString());
-			 
+
 		 }
-		 
-		 
+
+
 	
 
 }
