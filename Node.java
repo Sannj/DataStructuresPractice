@@ -4,13 +4,14 @@ public class Node {
 
 	int data;
 	Node next;
-	Node(int x) 
+	Node(int x)
     { 
   	  data = x; 
   	  next = null;
   	  }
-	Node(){
-		
+
+	public Node() {
+
 	}
 }
 
