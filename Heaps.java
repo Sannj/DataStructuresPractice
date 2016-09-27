@@ -5,9 +5,14 @@ public class Heaps{
 		Heaps minHeap = new Heaps(9);
 		minHeap.createMinHeap(origArray);
 		minHeap.display();
+        System.out.println("\n");
+		System.out.println("\n"+minHeap.extractMin());
+		minHeap.display();
 		Heaps maxHeap = new Heaps(9);
 		maxHeap.createMaxHeap(origArray);
 		maxHeap.display();
+        System.out.println("\n\n"+maxHeap.extractMax());
+        maxHeap.display();
 	}
 
 	int len;
@@ -21,6 +26,51 @@ public class Heaps{
 		heap = new int[this.len+1];
 		size = 0;
 	}
+
+
+	public int extractMin(){
+        int val = heap[1];
+        swap(1, size-1);
+        size--;
+        sinkDownMinHeap(1);
+        return val;
+    }
+
+    public int extractMax(){
+        int val = heap[1];
+        swap(1, size-1);
+        size--;
+        sinkDownMaxHeap(1);
+        return val;
+    }
+
+	public void sinkDownMinHeap(int k){
+        int smallest =k;
+        if(2*k<size && heap[smallest]>heap[2*k]){
+            smallest = 2*k;
+        }
+        if(2*k+1<size && heap[smallest]>heap[2*k+1]){
+            smallest = 2*k+1;
+        }
+        if(smallest!=k){
+            swap(k,smallest);
+            sinkDownMinHeap(smallest);
+        }
+	}
+
+    public void sinkDownMaxHeap(int k){
+        int largest =k;
+        if(2*k<size && heap[largest]<heap[2*k]){
+            largest = 2*k;
+        }
+        if(2*k+1<size && heap[largest]<heap[2*k+1]){
+            largest = 2*k+1;
+        }
+        if(largest!=k){
+            swap(k,largest);
+            sinkDownMaxHeap(largest);
+        }
+    }
 
 	public void createMaxHeap(int[] origArray){
 		heap[0] = Integer.MAX_VALUE;
