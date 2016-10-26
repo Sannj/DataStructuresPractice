@@ -1,12 +1,12 @@
 package DataStructuresPractice;
 
-public class LinkedList {
+public class LinkedListProg {
 
 	Node head;
 	int counter = 0;
 	Node end;
 	
-	 LinkedList(){
+	 LinkedListProg(){
 		 head = null;
 		 end = null;
 	 }
@@ -112,7 +112,7 @@ public class LinkedList {
 	}
 	
 	public static void main(String args[]){
-		LinkedList newList = new LinkedList();
+		LinkedListProg newList = new LinkedListProg();
 		newList.add(5);
 		newList.add(6);
 		newList.add(7);
